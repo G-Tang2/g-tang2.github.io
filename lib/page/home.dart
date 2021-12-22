@@ -21,7 +21,11 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             const Expanded(child: Text('Cash Counting')),
-            ElevatedButton(onPressed: () {}, child: const Text('Start'))
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/safe');
+                },
+                child: const Text('Start'))
           ],
         ),
       ));
