@@ -1,5 +1,6 @@
 import 'package:app/page/home.dart';
 import 'package:app/page/safe.dart';
+import 'package:app/page/summary.dart';
 import 'package:app/provider/safe_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => const HomePage(),
           '/safe': (context) => const SafePage(),
+          '/summary': (context) => const SummaryPage(),
         });
   }
 }

@@ -17,13 +17,14 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-          body: Center(
+      appBar: AppBar(),
+      body: Center(
         child: Column(
           children: [
             const Expanded(child: Text('Cash Counting')),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/safe');
+                  Navigator.pushNamed(context, '/safe');
                 },
                 child: const Text('Start'))
           ],
