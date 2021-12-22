@@ -1,8 +1,12 @@
 import 'package:app/page/home.dart';
+import 'package:app/provider/safe_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+      providers: [ChangeNotifierProvider(create: (context) => SafeModel())],
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
