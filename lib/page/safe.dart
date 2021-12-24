@@ -29,7 +29,8 @@ class _SafePageState extends State<SafePage> {
         SafeHorizontalSpinBox(3, '50 cents'),
         SafeHorizontalSpinBox(4, '1 dollar'),
         SafeHorizontalSpinBox(5, '2 dollar'),
-        Text('Total: \$${context.watch<SafeModel>().getTotal}'),
+        Text(
+            'Total: \$${context.watch<SafeModel>().getTotal.toStringAsFixed(2)}'),
         ElevatedButton(
             onPressed: () {
               Navigator.pushNamed(context, '/till');

@@ -31,7 +31,8 @@ class _NotenFloatPageState extends State<NoteFloatPage> {
         FloatHorizontalSpinBox(8, '20 dollar'),
         FloatHorizontalSpinBox(9, '50 dollar'),
         FloatHorizontalSpinBox(10, '100 dollar'),
-        Text('Total: \$${context.watch<FloatModel>().getTotalNotes}'),
+        Text(
+            'Total: \$${context.watch<FloatModel>().getTotalNotes.toStringAsFixed(2)}'),
         makeButton()
       ])));
 
@@ -40,7 +41,8 @@ class _NotenFloatPageState extends State<NoteFloatPage> {
         (context.read<FloatModel>().float -
                 context.read<FloatModel>().getTotalCoins)
             .toStringAsFixed(2));
-    return Text('Add \$$remainingFloatAmount in notes to be in float');
+    return Text(
+        'Add \$${remainingFloatAmount.toStringAsFixed(2)} in notes to be in float');
   }
 
   Widget makeButton() {

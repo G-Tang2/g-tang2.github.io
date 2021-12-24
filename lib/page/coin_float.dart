@@ -25,14 +25,15 @@ class _CoinFloatPageState extends State<CoinFloatPage> {
       appBar: AppBar(title: const Text('Coin Float')),
       body: Scrollbar(
           child: ListView(children: [
-        Text('Remove \$${excessCoins()}'),
+        Text('Remove \$${excessCoins().toStringAsFixed(2)}'),
         TakingHorizontalSpinBox(0, '5 cents'),
         TakingHorizontalSpinBox(1, '10 cents'),
         TakingHorizontalSpinBox(2, '20 cents'),
         TakingHorizontalSpinBox(3, '50 cents'),
         TakingHorizontalSpinBox(4, '1 dollar'),
         TakingHorizontalSpinBox(5, '2 dollar'),
-        Text('Total: \$${context.watch<TakingModel>().getTotalCoins}'),
+        Text(
+            'Total: \$${context.watch<TakingModel>().getTotalCoins.toStringAsFixed(2)}'),
         makeButton()
       ])));
 

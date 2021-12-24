@@ -33,7 +33,8 @@ class _TillPageState extends State<TillPage> {
         TillHorizontalSpinBox(8, '20 dollar'),
         TillHorizontalSpinBox(9, '50 dollar'),
         TillHorizontalSpinBox(10, '100 dollar'),
-        Text('Total: \$${context.watch<TillModel>().getTotal}'),
+        Text(
+            'Total: \$${context.watch<TillModel>().getTotal.toStringAsFixed(2)}'),
         ElevatedButton(
             onPressed: () {
               Navigator.pushNamed(context, '/coin_float');
