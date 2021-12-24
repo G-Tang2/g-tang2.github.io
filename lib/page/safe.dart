@@ -19,15 +19,17 @@ class _SafePageState extends State<SafePage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: const Text('Safe')),
       body: Scrollbar(
           child: ListView(children: [
+        const Text('Enter the number of rolls for each coin denominator'),
         HorizontalSpinBox(0, '5 cents'),
         HorizontalSpinBox(1, '10 cents'),
         HorizontalSpinBox(2, '20 cents'),
         HorizontalSpinBox(3, '50 cents'),
         HorizontalSpinBox(4, '1 dollar'),
         HorizontalSpinBox(5, '2 dollar'),
+        Text('Total: \$${context.watch<SafeModel>().getTotal}'),
         ElevatedButton(
             onPressed: () {
               Navigator.pushNamed(context, '/summary');

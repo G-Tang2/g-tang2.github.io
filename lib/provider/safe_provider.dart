@@ -18,5 +18,8 @@ class SafeModel with ChangeNotifier {
       .map((value) => value[0] * value[1])
       .reduce((value, element) => value + element);
 
-  void set(int i, double n) => _count[i] = n;
+  void set(int i, double n) {
+    _count[i] = n;
+    notifyListeners();
+  }
 }
