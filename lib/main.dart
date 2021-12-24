@@ -3,6 +3,7 @@ import 'package:app/page/home.dart';
 import 'package:app/page/note_float.dart';
 import 'package:app/page/safe.dart';
 import 'package:app/page/summary.dart';
+import 'package:app/page/takings.dart';
 import 'package:app/page/till.dart';
 import 'package:app/provider/float_provider.dart';
 import 'package:app/provider/safe_provider.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
           '/till': (_) => const TillPage(),
           '/coin_float': (_) => const CoinFloatPage(),
           '/note_float': (_) => const NoteFloatPage(),
+          '/takings': (_) => const TakingsPage(),
           '/summary': (_) => const SummaryPage(),
         });
   }

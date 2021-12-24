@@ -56,7 +56,7 @@ class _NotenFloatPageState extends State<NoteFloatPage> {
         onPressed: remainingFloatAmount == floatTotalNotes
             ? () {
                 updateNoteTakings;
-                Navigator.pushNamed(context, '/summary');
+                Navigator.pushNamed(context, '/takings');
               }
             : null,
         child: const Text('Next'));
