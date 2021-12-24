@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinbox/flutter_spinbox.dart';
 import 'package:provider/src/provider.dart';
 
-class HorizontalSpinBox extends StatelessWidget {
+class SafeHorizontalSpinBox extends StatelessWidget {
   int i;
   String label;
   double value = 0;
 
-  HorizontalSpinBox(this.i, this.label, {Key? key}) : super(key: key);
+  SafeHorizontalSpinBox(this.i, this.label, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

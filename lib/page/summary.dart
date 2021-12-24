@@ -1,7 +1,5 @@
 import 'package:app/provider/safe_provider.dart';
-import 'package:app/widget/horizontal_spinbox.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinbox/flutter_spinbox.dart';
 import 'package:provider/src/provider.dart';
 
 class SummaryPage extends StatefulWidget {
