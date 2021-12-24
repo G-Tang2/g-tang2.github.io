@@ -7,8 +7,8 @@ class FloatModel with ChangeNotifier {
 
   // value holds the dollar amount for each coin and note denomination in ascending order.
   // ie. [five cents, ten cents, ..., fifty dollars, one hundred dollar]
-  static List<double> coinValue = [0.05, 0.10, 0.20, 0.50, 1.00, 2.00];
-  static List<double> noteValue = [5.00, 10.00, 20.00, 50.00, 100.00];
+  List<double> coinValue = [0.05, 0.10, 0.20, 0.50, 1.00, 2.00];
+  List<double> noteValue = [5.00, 10.00, 20.00, 50.00, 100.00];
 
   // count holds the amount of rolls for each coin denominator in ascending order.
   // ie. [five cents, ten cents, ..., two dollars]
@@ -24,32 +24,43 @@ class FloatModel with ChangeNotifier {
         .reduce((value, element) => value + element);
   }
 
-  double get getTotalCoins => IterableZip([getValue, getCount])
-      .take(coinCount.length)
+  List<double> get getNoteCount => noteCount;
+
+  double get getTotalCoins => IterableZip([coinValue, coinCount])
       .map((value) => value[0] * value[1])
       .reduce((value, element) => value + element);
 
-  double get getTotalNotes => IterableZip([getValue, getCount])
-      .skip(6)
+  double get getTotalNotes => IterableZip([noteValue, noteCount])
       .map((value) => value[0] * value[1])
       .reduce((value, element) => value + element);
 
   double get getRemainingFloatAmount => (float - getTotal);
 
-  void set(int i, double n) {
-    getCount[i] = n;
+  void setCoin(int i, double n) {
+    coinCount[i] = n;
     notifyListeners();
   }
 
-  void addCoinCount(List<double> additionalCoinCount) {
+  void setNote(int i, double n) {
+    noteCount[i] = n;
+    notifyListeners();
+  }
+
+  void addCoinCount(List<double> count) {
     for (int i = 0; i < coinCount.length; i += 1) {
-      coinCount[i] = coinCount[i] + additionalCoinCount[i];
+      coinCount[i] = coinCount[i] + count[i];
     }
   }
 
-  void addNoteCount(List<double> additionalNoteCount) {
+  void addNoteCount(List<double> count) {
     for (int i = 0; i < noteCount.length; i += 1) {
-      noteCount[i] = noteCount[i] + additionalNoteCount[i];
+      noteCount[i] = noteCount[i] + count[i];
+    }
+  }
+
+  void removeNoteCount(List<double> count) {
+    for (int i = 0; i < noteCount.length; i += 1) {
+      noteCount[i] = noteCount[i] - count[i];
     }
   }
 }

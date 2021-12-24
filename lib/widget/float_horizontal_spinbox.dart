@@ -24,6 +24,10 @@ class FloatHorizontalSpinBox extends StatelessWidget {
   }
 
   void updateValue(BuildContext context, double value) {
-    context.read<FloatModel>().set(i, value);
+    if (i < 6) {
+      context.read<FloatModel>().setCoin(i, value);
+    } else {
+      context.read<FloatModel>().setNote(i - 6, value);
+    }
   }
 }

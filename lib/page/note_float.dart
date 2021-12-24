@@ -6,6 +6,7 @@ import 'package:app/widget/float_horizontal_spinbox.dart';
 import 'package:app/widget/taking_horizontal_spinbox.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
+import 'package:collection/collection.dart';
 
 class NoteFloatPage extends StatefulWidget {
   const NoteFloatPage({Key? key}) : super(key: key);
@@ -54,9 +55,15 @@ class _NotenFloatPageState extends State<NoteFloatPage> {
     return ElevatedButton(
         onPressed: remainingFloatAmount == floatTotalNotes
             ? () {
+                updateNoteTakings;
                 Navigator.pushNamed(context, '/summary');
               }
             : null,
         child: const Text('Next'));
+  }
+
+  void updateNoteTakings() {
+    List<double> notesInFloat = context.read<FloatModel>().getNoteCount;
+    context.read<FloatModel>().removeNoteCount(notesInFloat);
   }
 }
