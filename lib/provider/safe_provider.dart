@@ -18,6 +18,16 @@ class SafeModel with ChangeNotifier {
       .map((value) => value[0] * value[1])
       .reduce((value, element) => value + element);
 
+  List<double> getNumberOfCoins() {
+    List<double> denominationValue = [0.05, 0.10, 0.20, 0.50, 1.00, 2.00];
+    List<double> numberOfCoinsInRoll = IterableZip([value, denominationValue])
+        .map((value) => value[0] / value[1])
+        .toList();
+    return IterableZip([numberOfCoinsInRoll, _count])
+        .map((value) => value[0] * value[1])
+        .toList();
+  }
+
   void set(int i, double n) {
     _count[i] = n;
     notifyListeners();

@@ -36,7 +36,7 @@ class _TillPageState extends State<TillPage> {
         Text('Total: \$${context.watch<TillModel>().getTotal}'),
         ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/till');
+              Navigator.pushNamed(context, '/coin_float');
             },
             child: const Text('Next'))
       ])));
