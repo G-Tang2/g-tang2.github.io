@@ -3,7 +3,8 @@ import 'package:collection/collection.dart';
 
 class FloatModel with ChangeNotifier {
   // float is $800.
-  double float = 800;
+  double safeFloat = 400;
+  double openingFloat = 400;
 
   // value holds the dollar amount for each coin and note denomination in ascending order.
   // ie. [five cents, ten cents, ..., fifty dollars, one hundred dollar]
@@ -20,6 +21,10 @@ class FloatModel with ChangeNotifier {
 
   double getCoinCount(int i) => coinCount[i];
   double getNoteCount(int i) => noteCount[i];
+
+  double get getTotalFloat => safeFloat + openingFloat;
+  double get getSafeFloat => safeFloat;
+  double get getOpeningFloat => openingFloat;
 
   double get getTotal {
     return IterableZip([getValue, getCount])
@@ -38,7 +43,7 @@ class FloatModel with ChangeNotifier {
       .map((value) => value[0] * value[1])
       .reduce((value, element) => value + element);
 
-  double get getRemainingFloatAmount => (float - getTotal);
+  double get getRemainingFloatAmount => (getTotalFloat - getTotal);
 
   void setCoinCount(int i, double n) {
     coinCount[i] = n;

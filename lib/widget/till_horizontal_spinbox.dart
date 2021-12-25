@@ -5,12 +5,11 @@ import 'package:flutter_spinbox/flutter_spinbox.dart';
 import 'package:provider/src/provider.dart';
 
 class TillHorizontalSpinBox extends StatelessWidget {
-  int i;
-  String label;
-  CashType type;
-  double value = 0;
+  final int i;
+  final String label;
+  final CashType type;
 
-  TillHorizontalSpinBox(this.i, this.label, this.type, {Key? key})
+  const TillHorizontalSpinBox(this.i, this.label, this.type, {Key? key})
       : super(key: key);
 
   @override

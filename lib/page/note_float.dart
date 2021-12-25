@@ -4,7 +4,6 @@ import 'package:app/provider/safe_provider.dart';
 import 'package:app/provider/taking_provider.dart';
 import 'package:app/provider/till_provider.dart';
 import 'package:app/widget/float_horizontal_spinbox.dart';
-import 'package:app/widget/taking_horizontal_spinbox.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
 import 'package:collection/collection.dart';
@@ -32,11 +31,11 @@ class _NotenFloatPageState extends State<NoteFloatPage> {
           body: Scrollbar(
               child: ListView(children: [
             makeInstructionText(),
-            FloatHorizontalSpinBox(0, '5 dollar', CashType.note),
-            FloatHorizontalSpinBox(1, '10 dollar', CashType.note),
-            FloatHorizontalSpinBox(2, '20 dollar', CashType.note),
-            FloatHorizontalSpinBox(3, '50 dollar', CashType.note),
-            FloatHorizontalSpinBox(4, '100 dollar', CashType.note),
+            const FloatHorizontalSpinBox(0, '5 dollar', CashType.note),
+            const FloatHorizontalSpinBox(1, '10 dollar', CashType.note),
+            const FloatHorizontalSpinBox(2, '20 dollar', CashType.note),
+            const FloatHorizontalSpinBox(3, '50 dollar', CashType.note),
+            const FloatHorizontalSpinBox(4, '100 dollar', CashType.note),
             Text(
                 'Total: \$${context.watch<FloatModel>().getTotalNotes.toStringAsFixed(2)}'),
             makeButton()
@@ -44,16 +43,16 @@ class _NotenFloatPageState extends State<NoteFloatPage> {
 
   Widget makeInstructionText() {
     final double remainingFloatAmount = double.parse(
-        (context.read<FloatModel>().float -
+        (context.read<FloatModel>().getTotalFloat -
                 context.read<FloatModel>().getTotalCoins)
             .toStringAsFixed(2));
     return Text(
-        'Add \$${remainingFloatAmount.toStringAsFixed(2)} in notes to be in float');
+        'Add \$${remainingFloatAmount.toStringAsFixed(2)} in notes to be in the float.\nThe remaining will be for the bank takings.');
   }
 
   Widget makeButton() {
     final double remainingFloatAmount = double.parse(
-        (context.read<FloatModel>().float -
+        (context.read<FloatModel>().getTotalFloat -
                 context.read<FloatModel>().getTotalCoins)
             .toStringAsFixed(2));
     double floatTotalNotes = context.watch<FloatModel>().getTotalNotes;

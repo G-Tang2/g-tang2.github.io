@@ -1,5 +1,4 @@
 import 'package:app/provider/float_provider.dart';
-import 'package:app/provider/safe_provider.dart';
 import 'package:app/provider/taking_provider.dart';
 import 'package:app/provider/till_provider.dart';
 import 'package:flutter/material.dart';
@@ -28,16 +27,17 @@ class _TakingsPageState extends State<TakingsPage> {
           appBar: AppBar(title: const Text('Takings')),
           body: Scrollbar(
               child: ListView(children: [
-            Text('Confirm you have these amounts for the bank taking.'),
+            const Text('Confirm you have these amounts for the bank taking.'),
             makeTable(),
-            Text('Total: \$${context.read<TakingModel>().getTotal}'),
+            Text(
+                'Total: \$${context.read<TakingModel>().getTotal.toStringAsFixed(2)}'),
             makeButton()
           ]))));
 
   Widget makeButton() {
     return ElevatedButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/summary');
+          Navigator.pushNamed(context, '/finalising');
         },
         child: const Text('Confirm'));
   }

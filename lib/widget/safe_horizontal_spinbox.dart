@@ -4,11 +4,10 @@ import 'package:flutter_spinbox/flutter_spinbox.dart';
 import 'package:provider/src/provider.dart';
 
 class SafeHorizontalSpinBox extends StatelessWidget {
-  int i;
-  String label;
-  double value = 0;
+  final int i;
+  final String label;
 
-  SafeHorizontalSpinBox(this.i, this.label, {Key? key}) : super(key: key);
+  const SafeHorizontalSpinBox(this.i, this.label, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

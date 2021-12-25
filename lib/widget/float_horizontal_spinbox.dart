@@ -1,17 +1,15 @@
 import 'package:app/main.dart';
 import 'package:app/provider/float_provider.dart';
-import 'package:app/provider/taking_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinbox/flutter_spinbox.dart';
 import 'package:provider/src/provider.dart';
 
 class FloatHorizontalSpinBox extends StatelessWidget {
-  int i;
-  String label;
-  CashType type;
-  double value = 0;
+  final int i;
+  final String label;
+  final CashType type;
 
-  FloatHorizontalSpinBox(this.i, this.label, this.type, {Key? key})
+  const FloatHorizontalSpinBox(this.i, this.label, this.type, {Key? key})
       : super(key: key);
 
   @override
