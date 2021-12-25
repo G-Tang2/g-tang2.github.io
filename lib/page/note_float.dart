@@ -1,3 +1,4 @@
+import 'package:app/main.dart';
 import 'package:app/provider/float_provider.dart';
 import 'package:app/provider/safe_provider.dart';
 import 'package:app/provider/taking_provider.dart';
@@ -31,11 +32,11 @@ class _NotenFloatPageState extends State<NoteFloatPage> {
           body: Scrollbar(
               child: ListView(children: [
             makeInstructionText(),
-            FloatHorizontalSpinBox(6, '5 dollar'),
-            FloatHorizontalSpinBox(7, '10 dollar'),
-            FloatHorizontalSpinBox(8, '20 dollar'),
-            FloatHorizontalSpinBox(9, '50 dollar'),
-            FloatHorizontalSpinBox(10, '100 dollar'),
+            FloatHorizontalSpinBox(0, '5 dollar', CashType.note),
+            FloatHorizontalSpinBox(1, '10 dollar', CashType.note),
+            FloatHorizontalSpinBox(2, '20 dollar', CashType.note),
+            FloatHorizontalSpinBox(3, '50 dollar', CashType.note),
+            FloatHorizontalSpinBox(4, '100 dollar', CashType.note),
             Text(
                 'Total: \$${context.watch<FloatModel>().getTotalNotes.toStringAsFixed(2)}'),
             makeButton()
@@ -59,7 +60,7 @@ class _NotenFloatPageState extends State<NoteFloatPage> {
     return ElevatedButton(
         onPressed: remainingFloatAmount == floatTotalNotes
             ? () {
-                updateNoteTakings;
+                updateNoteTakings();
                 Navigator.pushNamed(context, '/takings');
               }
             : null,
@@ -67,14 +68,18 @@ class _NotenFloatPageState extends State<NoteFloatPage> {
   }
 
   void updateNoteTakings() {
-    List<double> notesInFloat = context.read<FloatModel>().getNoteCount;
-    context.read<FloatModel>().removeNoteCount(notesInFloat);
+    List<double> notesInFloat = context.read<FloatModel>().getAllNoteCount;
+    List<double> notesInTill = context.read<TillModel>().getAllNoteCount;
+    List<double> notesInTakings = IterableZip([notesInTill, notesInFloat])
+        .map((value) => value[0] - value[1])
+        .toList();
+    context.read<TakingModel>().addNoteCount(notesInTakings);
   }
 
   Future<bool> updateCoinFloat() {
-    List<double> takings = context.read<TakingModel>().getCoinCount;
-    List<double> safeCoins = context.read<SafeModel>().getNumberOfCoins();
-    List<double> tillCoins = context.read<TillModel>().getNumberOfCoins();
+    List<double> takings = context.read<TakingModel>().getAllCoinCount;
+    List<double> safeCoins = context.read<SafeModel>().getAllCoinCount;
+    List<double> tillCoins = context.read<TillModel>().getAllCoinCount;
 
     List<double> totalFloatCoins = IterableZip([safeCoins, tillCoins, takings])
         .map((value) => value[0] + value[1] - value[2])

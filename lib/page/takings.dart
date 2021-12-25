@@ -28,17 +28,17 @@ class _TakingsPageState extends State<TakingsPage> {
   Widget makeTable() {
     return Table(border: TableBorder.all(), children: <TableRow>[
       tableHeader(),
-      tableBody('5 cents', '${context.read<TakingModel>().get(0)}'),
-      tableBody('10 cents', '${context.read<TakingModel>().get(1)}'),
-      tableBody('20 cents', '${context.read<TakingModel>().get(2)}'),
-      tableBody('50 cents', '${context.read<TakingModel>().get(3)}'),
-      tableBody('1 dollar', '${context.read<TakingModel>().get(4)}'),
-      tableBody('2 dollar', '${context.read<TakingModel>().get(5)}'),
-      tableBody('5 dollar', '${context.read<TakingModel>().get(6)}'),
-      tableBody('10 dollar', '${context.read<TakingModel>().get(7)}'),
-      tableBody('20 dollar', '${context.read<TakingModel>().get(8)}'),
-      tableBody('50 dollar', '${context.read<TakingModel>().get(9)}'),
-      tableBody('100 dollar', '${context.read<TakingModel>().get(10)}'),
+      tableBody('5 cents', '${context.read<TakingModel>().getCoinCount(0)}'),
+      tableBody('10 cents', '${context.read<TakingModel>().getCoinCount(1)}'),
+      tableBody('20 cents', '${context.read<TakingModel>().getCoinCount(2)}'),
+      tableBody('50 cents', '${context.read<TakingModel>().getCoinCount(3)}'),
+      tableBody('1 dollar', '${context.read<TakingModel>().getCoinCount(4)}'),
+      tableBody('2 dollar', '${context.read<TakingModel>().getCoinCount(5)}'),
+      tableBody('5 dollar', '${context.read<TakingModel>().getNoteCount(0)}'),
+      tableBody('10 dollar', '${context.read<TakingModel>().getNoteCount(1)}'),
+      tableBody('20 dollar', '${context.read<TakingModel>().getNoteCount(2)}'),
+      tableBody('50 dollar', '${context.read<TakingModel>().getNoteCount(3)}'),
+      tableBody('100 dollar', '${context.read<TakingModel>().getNoteCount(4)}'),
     ]);
   }
 

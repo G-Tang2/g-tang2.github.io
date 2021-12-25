@@ -18,13 +18,17 @@ class FloatModel with ChangeNotifier {
   List<double> get getValue => coinValue + noteValue;
   List<double> get getCount => coinCount + noteCount;
 
+  double getCoinCount(int i) => coinCount[i];
+  double getNoteCount(int i) => noteCount[i];
+
   double get getTotal {
     return IterableZip([getValue, getCount])
         .map((value) => value[0] * value[1])
         .reduce((value, element) => value + element);
   }
 
-  List<double> get getNoteCount => noteCount;
+  List<double> get getAllCoinCount => coinCount;
+  List<double> get getAllNoteCount => noteCount;
 
   double get getTotalCoins => IterableZip([coinValue, coinCount])
       .map((value) => value[0] * value[1])
@@ -36,12 +40,12 @@ class FloatModel with ChangeNotifier {
 
   double get getRemainingFloatAmount => (float - getTotal);
 
-  void setCoin(int i, double n) {
+  void setCoinCount(int i, double n) {
     coinCount[i] = n;
     notifyListeners();
   }
 
-  void setNote(int i, double n) {
+  void setNoteCount(int i, double n) {
     noteCount[i] = n;
     notifyListeners();
   }

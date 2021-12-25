@@ -12,6 +12,8 @@ import 'package:app/provider/till_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+enum CashType { coin, note }
+
 void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => SafeModel()),
