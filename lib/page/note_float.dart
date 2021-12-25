@@ -68,8 +68,8 @@ class _NotenFloatPageState extends State<NoteFloatPage> {
   }
 
   void updateNoteTakings() {
-    List<double> notesInFloat = context.read<FloatModel>().getAllNoteCount;
     List<double> notesInTill = context.read<TillModel>().getAllNoteCount;
+    List<double> notesInFloat = context.read<FloatModel>().getAllNoteCount;
     List<double> notesInTakings = IterableZip([notesInTill, notesInFloat])
         .map((value) => value[0] - value[1])
         .toList();

@@ -50,4 +50,10 @@ class TakingModel with ChangeNotifier {
       noteCount[i] = noteCount[i] + count[i];
     }
   }
+
+  void subtractNoteCount(List<double> count) {
+    for (int i = 0; i < noteCount.length; i += 1) {
+      noteCount[i] = noteCount[i] - count[i];
+    }
+  }
 }

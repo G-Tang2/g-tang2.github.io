@@ -1,7 +1,10 @@
+import 'package:app/provider/float_provider.dart';
 import 'package:app/provider/safe_provider.dart';
 import 'package:app/provider/taking_provider.dart';
+import 'package:app/provider/till_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
+import 'package:collection/collection.dart';
 
 class TakingsPage extends StatefulWidget {
   const TakingsPage({Key? key}) : super(key: key);
@@ -17,13 +20,27 @@ class _TakingsPageState extends State<TakingsPage> {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-      appBar: AppBar(title: const Text('Takings')),
-      body: Scrollbar(
-          child: ListView(children: [
-        Text('Confirm you have these amounts for the bank taking.'),
-        makeTable()
-      ])));
+  Widget build(BuildContext context) => WillPopScope(
+      onWillPop: () async {
+        return updateNoteTakings();
+      },
+      child: Scaffold(
+          appBar: AppBar(title: const Text('Takings')),
+          body: Scrollbar(
+              child: ListView(children: [
+            Text('Confirm you have these amounts for the bank taking.'),
+            makeTable(),
+            Text('Total: \$${context.read<TakingModel>().getTotal}'),
+            makeButton()
+          ]))));
+
+  Widget makeButton() {
+    return ElevatedButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/summary');
+        },
+        child: const Text('Confirm'));
+  }
 
   Widget makeTable() {
     return Table(border: TableBorder.all(), children: <TableRow>[
@@ -62,6 +79,15 @@ class _TakingsPageState extends State<TakingsPage> {
     return TableRow(children: <Widget>[Text(col1), Text(col2)]);
   }
 
+  Future<bool> updateNoteTakings() {
+    List<double> notesInFloat = context.read<FloatModel>().getAllNoteCount;
+    List<double> notesInTill = context.read<TillModel>().getAllNoteCount;
+    List<double> notesInTakings = IterableZip([notesInTill, notesInFloat])
+        .map((value) => value[0] - value[1])
+        .toList();
+    context.read<TakingModel>().subtractNoteCount(notesInTakings);
+    return Future.value(true);
+  }
   //  void handleClick() {
   //    Navigator.pushNamed(context, TakingsPage.route);
   //  }
