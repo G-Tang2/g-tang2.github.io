@@ -52,6 +52,12 @@ class FloatModel with ChangeNotifier {
     }
   }
 
+  void subtractCoinCount(List<double> count) {
+    for (int i = 0; i < coinCount.length; i += 1) {
+      coinCount[i] = coinCount[i] - count[i];
+    }
+  }
+
   void addNoteCount(List<double> count) {
     for (int i = 0; i < noteCount.length; i += 1) {
       noteCount[i] = noteCount[i] + count[i];
