@@ -43,7 +43,7 @@ class _FinalisingTerminalPageState extends State<FinalisingTerminalPage> {
     ];
 
     return Scaffold(
-        appBar: AppBar(title: const Text('Finalising')),
+        appBar: AppBar(title: const Text('Finalising (Z-Read)')),
         body: Stepper(
           currentStep: _index,
           onStepCancel: () {

@@ -24,10 +24,10 @@ class _TakingsPageState extends State<TakingsPage> {
         return updateNoteTakings();
       },
       child: Scaffold(
-          appBar: AppBar(title: const Text('Takings')),
+          appBar: AppBar(title: const Text('Bank Takings')),
           body: Scrollbar(
               child: ListView(children: [
-            const Text('Confirm you have these amounts for the bank taking.'),
+            const Text('Confirm you have these amounts for the bank takings.'),
             makeTable(),
             Text(
                 'Total: \$${context.read<TakingModel>().getTotal.toStringAsFixed(2)}'),
