@@ -84,8 +84,4 @@ class _FinalisingTabletPageState extends State<FinalisingTabletPage> {
           steps: stepList,
         ));
   }
-
-  //  void handleClick() {
-  //    Navigator.pushNamed(context, FinalisingTabletPage.route);
-  //  }
 }

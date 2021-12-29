@@ -23,17 +23,17 @@ class _TillPageState extends State<TillPage> {
       body: Scrollbar(
           child: ListView(children: [
         const Text('Enter the number coins and notes for each denomination.'),
-        const TillHorizontalSpinBox(0, '5 cents', CashType.coin),
-        const TillHorizontalSpinBox(1, '10 cents', CashType.coin),
-        const TillHorizontalSpinBox(2, '20 cents', CashType.coin),
-        const TillHorizontalSpinBox(3, '50 cents', CashType.coin),
-        const TillHorizontalSpinBox(4, '1 dollar', CashType.coin),
-        const TillHorizontalSpinBox(5, '2 dollar', CashType.coin),
-        const TillHorizontalSpinBox(0, '5 dollar', CashType.note),
-        const TillHorizontalSpinBox(1, '10 dollar', CashType.note),
-        const TillHorizontalSpinBox(2, '20 dollar', CashType.note),
-        const TillHorizontalSpinBox(3, '50 dollar', CashType.note),
-        const TillHorizontalSpinBox(4, '100 dollar', CashType.note),
+        const TillHorizontalSpinBox(0, '\$0.05', CashType.coin),
+        const TillHorizontalSpinBox(1, '\$0.10', CashType.coin),
+        const TillHorizontalSpinBox(2, '\$0.20', CashType.coin),
+        const TillHorizontalSpinBox(3, '\$0.50', CashType.coin),
+        const TillHorizontalSpinBox(4, '\$1.00', CashType.coin),
+        const TillHorizontalSpinBox(5, '\$2.00', CashType.coin),
+        const TillHorizontalSpinBox(0, '\$5.00', CashType.note),
+        const TillHorizontalSpinBox(1, '\$10.00', CashType.note),
+        const TillHorizontalSpinBox(2, '\$20.00', CashType.note),
+        const TillHorizontalSpinBox(3, '\$50.00', CashType.note),
+        const TillHorizontalSpinBox(4, '\$100.00', CashType.note),
         Text(
             'Total: \$${context.watch<TillModel>().getTotal.toStringAsFixed(2)}'),
         ElevatedButton(
@@ -42,8 +42,4 @@ class _TillPageState extends State<TillPage> {
             },
             child: const Text('Next'))
       ])));
-
-  //  void handleClick() {
-  //    Navigator.pushNamed(context, TillPage.route);
-  //  }
 }

@@ -45,27 +45,27 @@ class _TakingsPageState extends State<TakingsPage> {
   Widget makeTable() {
     return Table(border: TableBorder.all(), children: <TableRow>[
       tableHeader(),
-      tableBody('5 cents',
+      tableBody('\$0.05',
           context.read<TakingModel>().getCoinCount(0).toStringAsFixed(0)),
-      tableBody('10 cents',
+      tableBody('\$0.10',
           context.read<TakingModel>().getCoinCount(1).toStringAsFixed(0)),
-      tableBody('20 cents',
+      tableBody('\$0.20',
           context.read<TakingModel>().getCoinCount(2).toStringAsFixed(0)),
-      tableBody('50 cents',
+      tableBody('\$0.50',
           context.read<TakingModel>().getCoinCount(3).toStringAsFixed(0)),
-      tableBody('1 dollar',
+      tableBody('\$1.00',
           context.read<TakingModel>().getCoinCount(4).toStringAsFixed(0)),
-      tableBody('2 dollar',
+      tableBody('\$2.00',
           context.read<TakingModel>().getCoinCount(5).toStringAsFixed(0)),
-      tableBody('5 dollar',
+      tableBody('\$5.00',
           context.read<TakingModel>().getNoteCount(0).toStringAsFixed(0)),
-      tableBody('10 dollar',
+      tableBody('\$10.00',
           context.read<TakingModel>().getNoteCount(1).toStringAsFixed(0)),
-      tableBody('20 dollar',
+      tableBody('\$20.00',
           context.read<TakingModel>().getNoteCount(2).toStringAsFixed(0)),
-      tableBody('50 dollar',
+      tableBody('\$50.00',
           context.read<TakingModel>().getNoteCount(3).toStringAsFixed(0)),
-      tableBody('100 dollar',
+      tableBody('\$100.00',
           context.read<TakingModel>().getNoteCount(4).toStringAsFixed(0)),
     ]);
   }
@@ -88,7 +88,4 @@ class _TakingsPageState extends State<TakingsPage> {
     context.read<TakingModel>().subtractNoteCount(notesInTakings);
     return Future.value(true);
   }
-  //  void handleClick() {
-  //    Navigator.pushNamed(context, TakingsPage.route);
-  //  }
 }

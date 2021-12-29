@@ -22,12 +22,12 @@ class _SafePageState extends State<SafePage> {
       body: Scrollbar(
           child: ListView(children: [
         const Text('Enter the number of rolls for each coin denomination.'),
-        const SafeHorizontalSpinBox(0, '5 cents'),
-        const SafeHorizontalSpinBox(1, '10 cents'),
-        const SafeHorizontalSpinBox(2, '20 cents'),
-        const SafeHorizontalSpinBox(3, '50 cents'),
-        const SafeHorizontalSpinBox(4, '1 dollar'),
-        const SafeHorizontalSpinBox(5, '2 dollar'),
+        const SafeHorizontalSpinBox(0, '\$0.05'),
+        const SafeHorizontalSpinBox(1, '\$0.10'),
+        const SafeHorizontalSpinBox(2, '\$0.20'),
+        const SafeHorizontalSpinBox(3, '\$0.50'),
+        const SafeHorizontalSpinBox(4, '\$1.00'),
+        const SafeHorizontalSpinBox(5, '\$2.00'),
         Text(
             'Total: \$${context.watch<SafeModel>().getTotal.toStringAsFixed(2)}'),
         ElevatedButton(
@@ -36,8 +36,4 @@ class _SafePageState extends State<SafePage> {
             },
             child: const Text('Next'))
       ])));
-
-  //  void handleClick() {
-  //    Navigator.pushNamed(context, SafePage.route);
-  //  }
 }

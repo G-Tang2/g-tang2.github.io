@@ -31,11 +31,11 @@ class _NotenFloatPageState extends State<NoteFloatPage> {
           body: Scrollbar(
               child: ListView(children: [
             makeInstructionText(),
-            const FloatHorizontalSpinBox(0, '5 dollar', CashType.note),
-            const FloatHorizontalSpinBox(1, '10 dollar', CashType.note),
-            const FloatHorizontalSpinBox(2, '20 dollar', CashType.note),
-            const FloatHorizontalSpinBox(3, '50 dollar', CashType.note),
-            const FloatHorizontalSpinBox(4, '100 dollar', CashType.note),
+            const FloatHorizontalSpinBox(0, '\$5.00', CashType.note),
+            const FloatHorizontalSpinBox(1, '\$10.00', CashType.note),
+            const FloatHorizontalSpinBox(2, '\$20.00', CashType.note),
+            const FloatHorizontalSpinBox(3, '\$50.00', CashType.note),
+            const FloatHorizontalSpinBox(4, '\$100.00', CashType.note),
             Text(
                 'Total: \$${context.watch<FloatModel>().getTotalNotes.toStringAsFixed(2)}'),
             makeButton()
@@ -47,7 +47,7 @@ class _NotenFloatPageState extends State<NoteFloatPage> {
                 context.read<FloatModel>().getTotalCoins)
             .toStringAsFixed(2));
     return Text(
-        'Add \$${remainingFloatAmount.toStringAsFixed(2)} in notes to be in the float.\nThe remaining will be for the bank takings.');
+        'Remove \$${remainingFloatAmount.toStringAsFixed(2)} in notes from the till and add it to the float, the remaining will be for the bank takings.\n\nEnter the amount removed below.');
   }
 
   Widget makeButton() {

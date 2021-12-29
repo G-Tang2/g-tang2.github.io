@@ -30,9 +30,4 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ));
-
-  //  void handleClick() {
-  //    Navigator.pushNamed(context, SafePage.route);
-  //  }
-
 }

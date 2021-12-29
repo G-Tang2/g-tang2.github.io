@@ -27,13 +27,15 @@ class _CoinFloatPageState extends State<CoinFloatPage> {
       body: Scrollbar(
           child: ListView(children: [
         Text(
-            'Remove \$${excessCoins().toStringAsFixed(2)} from the float and add it to the bank takings.'),
-        const TakingHorizontalSpinBox(0, '5 cents', CashType.coin),
-        const TakingHorizontalSpinBox(1, '10 cents', CashType.coin),
-        const TakingHorizontalSpinBox(2, '20 cents', CashType.coin),
-        const TakingHorizontalSpinBox(3, '50 cents', CashType.coin),
-        const TakingHorizontalSpinBox(4, '1 dollar', CashType.coin),
-        const TakingHorizontalSpinBox(5, '2 dollar', CashType.coin),
+            'Remove \$${excessCoins().toStringAsFixed(2)} in coins from the till and add it to the bank takings, the remaining coins will be for the float.'),
+        const Text(''),
+        const Text('Enter the amount removed below.'),
+        const TakingHorizontalSpinBox(0, '\$0.05', CashType.coin),
+        const TakingHorizontalSpinBox(1, '\$0.10', CashType.coin),
+        const TakingHorizontalSpinBox(2, '\$0.20', CashType.coin),
+        const TakingHorizontalSpinBox(3, '\$0.50', CashType.coin),
+        const TakingHorizontalSpinBox(4, '\$1.00', CashType.coin),
+        const TakingHorizontalSpinBox(5, '\$2.00', CashType.coin),
         Text(
             'Total: \$${context.watch<TakingModel>().getTotalCoins.toStringAsFixed(2)}'),
         makeButton()
