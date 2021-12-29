@@ -17,8 +17,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-      appBar: AppBar(),
-      body: Center(
+          body: Center(
         child: Column(
           children: [
             const Expanded(child: Text('Cash Counting')),
