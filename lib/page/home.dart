@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
           body: Center(
         child: Column(
           children: [
-            const Expanded(child: Text('Cash Counting')),
+            const Expanded(child: Center(child: Text('Cash Counting'))),
             ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/safe');
