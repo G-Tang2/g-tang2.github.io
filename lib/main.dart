@@ -30,8 +30,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Cash Counting',
-        theme: ThemeData(primarySwatch: Colors.blue),
-        darkTheme: ThemeData(brightness: Brightness.dark),
+        darkTheme: ThemeData(
+            brightness: Brightness.dark,
+            primarySwatch: Colors.blue,
+            elevatedButtonTheme: ElevatedButtonThemeData(
+                style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(26)),
+                    padding: const EdgeInsets.fromLTRB(50, 15, 50, 15)))),
         themeMode: ThemeMode.dark,
         initialRoute: '/',
         routes: {
