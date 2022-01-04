@@ -32,16 +32,16 @@ class _NotenFloatPageState extends State<NoteFloatPage> {
             makeInstructionText(),
             Expanded(
                 child: Scrollbar(
-                    child: ListView(children: [
-              const FloatHorizontalSpinBox(0, '\$5.00', CashType.note),
-              const FloatHorizontalSpinBox(1, '\$10.00', CashType.note),
-              const FloatHorizontalSpinBox(2, '\$20.00', CashType.note),
-              const FloatHorizontalSpinBox(3, '\$50.00', CashType.note),
-              const FloatHorizontalSpinBox(4, '\$100.00', CashType.note),
-              Text(
-                  'Total: \$${context.watch<FloatModel>().getTotalNotes.toStringAsFixed(2)}'),
-              makeButton()
-            ])))
+                    child: ListView(children: const [
+              FloatHorizontalSpinBox(0, '\$5.00', CashType.note),
+              FloatHorizontalSpinBox(1, '\$10.00', CashType.note),
+              FloatHorizontalSpinBox(2, '\$20.00', CashType.note),
+              FloatHorizontalSpinBox(3, '\$50.00', CashType.note),
+              FloatHorizontalSpinBox(4, '\$100.00', CashType.note),
+            ]))),
+            Text(
+                'Total: \$${context.watch<FloatModel>().getTotalNotes.toStringAsFixed(2)}'),
+            makeButton()
           ])));
 
   Widget makeInstructionText() {
