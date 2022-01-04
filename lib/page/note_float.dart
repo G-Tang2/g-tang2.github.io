@@ -28,18 +28,21 @@ class _NotenFloatPageState extends State<NoteFloatPage> {
       },
       child: Scaffold(
           appBar: AppBar(title: const Text('Note Float')),
-          body: Scrollbar(
-              child: ListView(children: [
+          body: Column(children: [
             makeInstructionText(),
-            const FloatHorizontalSpinBox(0, '\$5.00', CashType.note),
-            const FloatHorizontalSpinBox(1, '\$10.00', CashType.note),
-            const FloatHorizontalSpinBox(2, '\$20.00', CashType.note),
-            const FloatHorizontalSpinBox(3, '\$50.00', CashType.note),
-            const FloatHorizontalSpinBox(4, '\$100.00', CashType.note),
-            Text(
-                'Total: \$${context.watch<FloatModel>().getTotalNotes.toStringAsFixed(2)}'),
-            makeButton()
-          ]))));
+            Expanded(
+                child: Scrollbar(
+                    child: ListView(children: [
+              const FloatHorizontalSpinBox(0, '\$5.00', CashType.note),
+              const FloatHorizontalSpinBox(1, '\$10.00', CashType.note),
+              const FloatHorizontalSpinBox(2, '\$20.00', CashType.note),
+              const FloatHorizontalSpinBox(3, '\$50.00', CashType.note),
+              const FloatHorizontalSpinBox(4, '\$100.00', CashType.note),
+              Text(
+                  'Total: \$${context.watch<FloatModel>().getTotalNotes.toStringAsFixed(2)}'),
+              makeButton()
+            ])))
+          ])));
 
   Widget makeInstructionText() {
     final double remainingFloatAmount = double.parse(

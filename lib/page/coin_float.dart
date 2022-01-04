@@ -24,22 +24,24 @@ class _CoinFloatPageState extends State<CoinFloatPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(title: const Text('Coin Float')),
-      body: Scrollbar(
-          child: ListView(children: [
+      body: Column(children: [
         Text(
             'Remove \$${excessCoins().toStringAsFixed(2)} in coins from the till and add it to the bank takings, the remaining coins will be for the float.'),
-        const Text(''),
-        const Text('Enter the amount removed below.'),
-        const TakingHorizontalSpinBox(0, '\$0.05', CashType.coin),
-        const TakingHorizontalSpinBox(1, '\$0.10', CashType.coin),
-        const TakingHorizontalSpinBox(2, '\$0.20', CashType.coin),
-        const TakingHorizontalSpinBox(3, '\$0.50', CashType.coin),
-        const TakingHorizontalSpinBox(4, '\$1.00', CashType.coin),
-        const TakingHorizontalSpinBox(5, '\$2.00', CashType.coin),
+        const Text('\nEnter the amount removed below.\n'),
+        Expanded(
+            child: Scrollbar(
+                child: ListView(children: const [
+          TakingHorizontalSpinBox(0, '\$0.05', CashType.coin),
+          TakingHorizontalSpinBox(1, '\$0.10', CashType.coin),
+          TakingHorizontalSpinBox(2, '\$0.20', CashType.coin),
+          TakingHorizontalSpinBox(3, '\$0.50', CashType.coin),
+          TakingHorizontalSpinBox(4, '\$1.00', CashType.coin),
+          TakingHorizontalSpinBox(5, '\$2.00', CashType.coin),
+        ]))),
         Text(
             'Total: \$${context.watch<TakingModel>().getTotalCoins.toStringAsFixed(2)}'),
         makeButton()
-      ])));
+      ]));
 
   Widget makeButton() {
     double coinTakings = context.watch<TakingModel>().getTotalCoins;
